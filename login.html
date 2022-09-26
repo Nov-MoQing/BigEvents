@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- layui -->
+  <link rel="stylesheet" href="./assets/lib/layui/css/layui.css">
+  <!-- 自己 -->
+  <link rel="stylesheet" href="./assets/css/login.css">
+</head>
+
+<body>
+  <div class="layui-main">
+    <img src="./assets/images/logo.png" alt="">
+  </div>
+  <div class="login-reg-box">
+    <!-- 登录，注册标题区域 -->
+    <h4>
+      <img src="./assets/images/login_title.png" alt="">
+    </h4>
+
+    <!-- 登录表单区域 -->
+    <div class="login-wrap">
+      <form class="layui-form" action="">
+        <div class="layui-form-item">
+          <input type="text" name="title" required lay-verify="required" placeholder="请输入标题" autocomplete="off"
+            class="layui-input">
+        </div>
+      </form>
+      <a href="javascript:;" class="goReg">去注册</a>
+    </div>
+
+    <!-- 注册表单区域 -->
+    <div class="reg-wrap">
+      <a href="javascript:;" class="goLogin">去登录</a>
+    </div>
+  </div>
+
+  <!-- jquery -->
+  <script src="./assets/lib/jquery.min.js"></script>
+  <!-- 自己 -->
+  <script src="./assets/js/login.js"></script>
+</body>
+
+</html>
