@@ -15,5 +15,19 @@ $.ajaxPrefilter(function (config) {
   // 统一设置请求头 Content-Type值
   config.contentType = 'application/json'
   // 统一设置请求的参数  post 请求
-  config.data = format2Json(config.data)
+  config.data = config.data && format2Json(config.data)
+  // 统一设置请求头（有条件的加）
+  // index0f startsWith endsWith includes包含，包括的意思
+  if (config.url.includes('/my')) {
+    config.headers = {
+      Authorization: localStorage.getItem('big_news_token') || ''
+    }
+  }
+  // 统一添加错误回调，或者 complete 回调
+  config.error = function (err) {
+    if (err.responseJSON?.code === 1 && err.responseJSON?.message === "身份认证失败！") {
+      localStorage.removeItem('big_news_token')
+      location.href = '/login.html'
+    }
+  }
 })
