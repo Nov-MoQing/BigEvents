@@ -5,17 +5,21 @@ $.ajaxPrefilter(function (config) {
     let target = {}
     sourec.split('&').forEach(el => {
       let k = el.split('=')
-      target[k[0]] = k[1]
+      // 需要对value进行解码操作 40% → @
+      target[k[0]] = decodeURIComponent(k[1])
     })
     return JSON.stringify(target)
   }
 
   // 统一设置基准地址
   config.url = 'http://big-event-vue-api-t.itheima.net' + config.url
+  
   // 统一设置请求头 Content-Type值
   config.contentType = 'application/json'
+
   // 统一设置请求的参数  post 请求
   config.data = config.data && format2Json(config.data)
+  
   // 统一设置请求头（有条件的加）
   // index0f startsWith endsWith includes包含，包括的意思
   if (config.url.includes('/my')) {
@@ -23,6 +27,7 @@ $.ajaxPrefilter(function (config) {
       Authorization: localStorage.getItem('big_news_token') || ''
     }
   }
+  
   // 统一添加错误回调，或者 complete 回调
   config.error = function (err) {
     if (err.responseJSON?.code === 1 && err.responseJSON?.message === "身份认证失败！") {

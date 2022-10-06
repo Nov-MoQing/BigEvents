@@ -42,9 +42,11 @@ a {
 .layui-nav-img {
   width: 40px;
   height: 40px;
+  display: none;
 }
 
 .text-avatar {
+  display: none;
   width: 40px;
   height: 40px;
   display: flex;
