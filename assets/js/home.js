@@ -26,7 +26,7 @@ const renderAvatar = (data) => {
   // 如果有图片头像，隐藏字体图片，替换原来的src路径显示图片头像
   if (data.user_pic) {
     $('.text-avatar').hide()
-    $('.layui-nav-img').css(src, data.user_pic).show()
+    $('.layui-nav-img').attr('src', data.user_pic).show()
   } else {
     // 如果没有图片头像，隐藏图片头像，获取用户名的第一个字母变为大写，填到字体头像里面
     $('.layui-nav-img').hide()
