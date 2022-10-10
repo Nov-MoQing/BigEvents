@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f2f3f5;
+  padding: 15px;
+}
+
+
+.layui-table {
+ text-align: center; 
+}
+.layui-table thead tr th{
+  text-align: center !important;
+}
